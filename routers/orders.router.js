@@ -25,7 +25,7 @@ router.get("/:id", authenticate, async(req, res) => {
     }
 });
 
-router.get("/", admin, async(req, res) => {
+router.post("/all", admin, async(req, res) => {
     try {
 
         res.json( await ordersController.findAllOrders());
@@ -59,9 +59,9 @@ router.put("/:id", authenticate,  async(req, res) => {
     }
 });
 
-router.delete("/:id", authenticate, async(req, res) => {
+router.post("/adminDelete", admin, async(req, res) => {
     try {
-        const id = req.params.id;
+        const id = req.body.id;
         res.json( await ordersController.removeOrder(id));
     } catch (error) {
         return res.status(500).json({

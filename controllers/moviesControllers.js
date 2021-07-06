@@ -13,7 +13,7 @@ class Pelicula{
     }
 
     async searchByTitle(query){
-        let res = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=79a61f5dc13e3e9e4834fadbf4f326c7&query=${query}`);
+        let res = await axios.get();
         return res.data;
     }
 

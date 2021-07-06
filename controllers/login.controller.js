@@ -6,16 +6,16 @@ const secret = "Somos un equipazo";
 
 class LoginController {
 
-    async validate( nombreCheck, passwordCheck ) {
+    async validate( emailCheck, passwordCheck ) {
 
-        let user = await userController.nameUser(nombreCheck);
+        let user = await userController.emailUser(emailCheck);
 
         let password = user.password;
 
         let verificar = await bcrypt.compare(passwordCheck, password);
 
         if(!verificar) {
-            return new Error("El password y el email no coinciden");
+            throw new Error("El password y el email no coinciden");
         }
 
         let payload = {

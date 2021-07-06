@@ -15,17 +15,20 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   User.init({
-    nombre: DataTypes.STRING,
-    password: DataTypes.STRING,
-    isAdmin: DataTypes.BOOLEAN,
-    apellido1: DataTypes.STRING,
-    apellido2: DataTypes.STRING,
-    edad: DataTypes.INTEGER,
-    direccion: DataTypes.STRING,
-    cp: DataTypes.INTEGER,
+    name: DataTypes.STRING,
+    surname: DataTypes.STRING,
     email: DataTypes.STRING,
-    telefono: DataTypes.STRING
-  }, {
+    password: DataTypes.STRING,
+    birthday: DataTypes.DATE,
+    address: DataTypes.STRING,
+    country: DataTypes.STRING,
+    city: DataTypes.STRING,
+    telephone: DataTypes.STRING,
+    token: DataTypes.STRING,
+    isActive: DataTypes.STRING,
+    imgUser: DataTypes.STRING,
+    isAdmin: DataTypes.BOOLEAN  }, 
+  {
     sequelize,
     modelName: 'User',
   });

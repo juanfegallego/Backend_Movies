@@ -27,7 +27,6 @@ class Whis {
 
         return Order.update(
             //DAtos que cambiamos
-            // movieId: body.movieId
             {  rentalDate: body.rentalDate, returnDate: body.returnDate },
             //Donde
             { where: {id: idOrder}}

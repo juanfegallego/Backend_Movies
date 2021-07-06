@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": "1234abcd",
-    "database": "ExplorerMovieDB",
-    "host": "localhost",
+    "username": "b4d85f93452b51",
+    "password": "47a849d2",
+    "database": "heroku_3080c80e20c35ef",
+    "host": "eu-cdbr-west-01.cleardb.com",
     "port":"3306",
     "dialect": "mysql"
   },

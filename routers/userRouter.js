@@ -3,8 +3,10 @@ const usersControllers = require("../controllers/usersControllers");
 const authenticate = require("../middleware/authenticate");
 const admin = require("../middleware/admin");
 
+
 router.post('/',async (req, res) => {
     try {
+        console.log("VAIS A MORIR TODOS")
         const id = await usersControllers.createUser(req.body);
         const status = "success";
         res.json({ status, id });
@@ -37,7 +39,7 @@ router.put("/", authenticate, async(req, res) => {
     }
 });
 
-router.get("/", admin, async(req, res) => {
+router.post("/allUsers", admin, async(req, res) => {
     try {
         res.json(await usersControllers.findAllUsers());
     } catch (error) {
@@ -67,6 +69,18 @@ router.delete('/:id', authenticate, async (req, res) => {
             message: err.message
         });
     }
+});
+
+// Mail confirmation
+router.get("/confirm/:confirmationCode", async (req, res) => {
+  try {
+    token = req.params.confirmationCode;
+    res.json(await usersControllers.updateActive(token));
+  } catch (err) {
+    return res.status(500).json({
+      message: err.message,
+    });
+  }
 });
 
 module.exports = router;
